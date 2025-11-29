@@ -57,7 +57,7 @@ public class HomeForm extends JPanel {
         JPanel welcomePanel = new JPanel(new GridLayout(2, 1, 0, 3));
         welcomePanel.setOpaque(false);
 
-        JLabel welcome = new JLabel("Hi there, Admin!");
+        JLabel welcome = new JLabel("Hi there, Basta!");
         welcome.setFont(new Font("Tahoma", Font.BOLD, 22));
         welcome.setForeground(Color.BLACK);
 
@@ -80,47 +80,44 @@ public class HomeForm extends JPanel {
         return panel;
     }
 
+
     private JPanel createTopCardsPanel() {
-        // Grid layout for cards (1 row, multiple columns)
-        JPanel grid = new JPanel(new GridLayout(1, 4, 5, 0));
-        grid.setOpaque(false);
+    JPanel grid = new JPanel(new GridLayout(1, 4, 5, 0));
+    grid.setOpaque(false);
 
-        // List of cards (title, value, color key)
-        String[][] cards = {
-                {"Total Students", "2,524", "INFO"},
-                {"Total Staff", "124", "SUCCESS"},
-                {"Courses", "26", "WARNING"},
-        };
+    String[][] cards = {
+        {"Total Students", "2,524", "INFO"},
+        {"Total Staff", "124", "SUCCESS"},
+        {"Courses", "26", "WARNING"},
+    };
 
-        // Auto-generate cards
-        for (String[] data : cards) {
-            grid.add(createInfoCard(data[0], data[1], Kulay.getColor(data[2])));
-        }
-
-        return grid;
+    for (String[] data : cards) {
+        grid.add(createInfoCard(data[0], data[1], Kulay.getColor(data[2])));
     }
 
+    return grid;
+}
+
     private JPanel createInfoCard(String label, String value, Color color) {
-        // Rounded card container
         RoundPanel card = new RoundPanel();
         card.setBackground(Color.WHITE);
         card.setLayout(new BorderLayout());
-
-        // Border para may subtle definition yung card
-        card.setBorder(BorderFactory.createLineBorder(Kulay.BORDER_NEUTRAL, 1));
+        card.setBorder(BorderFactory.createLineBorder(Kulay.BORDER_NEUTRAL, 2));
         card.setOpaque(true);
 
-        // Main number/stat
+    // VALUE (big number)
         JLabel valueLabel = new JLabel(value);
         valueLabel.setFont(new Font("Tahoma", Font.BOLD, 28));
         valueLabel.setForeground(color);
+        valueLabel.setHorizontalAlignment(SwingConstants.CENTER); // ginamiit to para ma center yung content nung nasa box
 
-        // Label/title ng stat (e.g., "Total Students")
+    // TEXT LABEL (Total Students, etc.)
         JLabel nameLabel = new JLabel(label);
         nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
         nameLabel.setForeground(Color.BLACK);
+        nameLabel.setHorizontalAlignment(SwingConstants.CENTER); // ginamit to para ma center yung content nung nasa box
 
-        // Vertical arrangement of value + label
+    // CENTERING BOTH
         JPanel textPanel = new JPanel(new GridLayout(2, 1, 0, 3));
         textPanel.setOpaque(false);
         textPanel.add(valueLabel);
@@ -128,11 +125,11 @@ public class HomeForm extends JPanel {
 
         card.add(textPanel, BorderLayout.CENTER);
 
-        return card;
+       return card;
     }
 
     private JPanel createBottomPanel() {
-        // Placeholder area sa baba for future widgets or charts
+        // Placeholder area sa baba para may space
         JPanel panel = new JPanel(new GridLayout(1, 2, 10, 0));
         panel.setOpaque(false);
 
@@ -150,3 +147,4 @@ public class HomeForm extends JPanel {
         timeLabel.setForeground(Color.BLACK);
     }
 }
+
