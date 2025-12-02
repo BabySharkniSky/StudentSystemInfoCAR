@@ -12,20 +12,15 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * StudentForm - Main form para sa student management
- * Dito pwedeng mag-add, update, delete, at view ng student records
- */
+
 public class StudentForm extends JPanel {
-    
-    // Table components
+
     private CustomTable table;
     private DefaultTableModel tableModel;
     private JTextField searchField;
     
-    // Input fields
     private JTextField idField, nameField, emailField, phoneField, courseField;
-    private JComboBox<String> statusBox; // dropdown for status
+    private JComboBox<String> statusBox; 
     
     // Data storage
     private List<Object[]> studentData = new ArrayList<>();
@@ -37,19 +32,17 @@ public class StudentForm extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Kulay.VAPOROUS_GRAY);
         setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        initComponents(); // initialize UI
+        initComponents();
     }
     
-    /**
-     * initComponents - Setup ng main panel, form panel, search panel, at table
-     */
+   
+ 
     private void initComponents() {
         JPanel mainPanel = new JPanel(new BorderLayout(0, 20));
         mainPanel.setOpaque(false);
 
-        RoundPanel formPanel = createFormPanel(); // input form panel
+        RoundPanel formPanel = createFormPanel(); 
         
-        // Search panel setup
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
         searchPanel.setOpaque(false);
 
@@ -76,7 +69,7 @@ public class StudentForm extends JPanel {
         searchPanel.add(searchButton);
         searchPanel.add(refreshButton);
 
-        RoundPanel tablePanel = createTablePanel(); // table panel
+        RoundPanel tablePanel = createTablePanel(); 
 
         // Top section - form + search panel
         JPanel topSection = new JPanel(new BorderLayout(0, 20));
@@ -89,9 +82,7 @@ public class StudentForm extends JPanel {
         add(mainPanel, BorderLayout.CENTER);
     }
     
-    /**
-     * createFormPanel - Returns panel with input fields and action buttons
-     */
+
     private RoundPanel createFormPanel() {
         RoundPanel panel = new RoundPanel();
         panel.setBackground(Color.WHITE);
@@ -105,7 +96,7 @@ public class StudentForm extends JPanel {
         JPanel fieldsPanel = new JPanel(new GridLayout(2, 3, 15, 15));
         fieldsPanel.setOpaque(false);
 
-        // Initialize input fields
+ 
         idField = new JTextField(); nameField = new JTextField(); emailField = new JTextField();
         phoneField = new JTextField(); courseField = new JTextField();
         for (JTextField f : new JTextField[]{idField,nameField,emailField,phoneField,courseField}) {
@@ -119,7 +110,7 @@ public class StudentForm extends JPanel {
         fieldsPanel.add(createFieldPanel("Phone:", phoneField));
         fieldsPanel.add(createFieldPanel("Course:", courseField));
 
-        // Buttons panel
+    
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 0));
         buttonsPanel.setOpaque(false);
 
@@ -148,9 +139,7 @@ public class StudentForm extends JPanel {
         return panel;
     }
     
-    /**
-     * createTablePanel - Returns panel na may scrollable table ng students
-     */
+
     private RoundPanel createTablePanel() {
         RoundPanel panel = new RoundPanel();
         panel.setBackground(Color.WHITE);
@@ -182,14 +171,11 @@ public class StudentForm extends JPanel {
         panel.add(title, BorderLayout.NORTH);
         panel.add(scrollPane, BorderLayout.CENTER);
 
-        loadSampleData(); // load sample data sa start
+        loadSampleData(); 
 
         return panel;
     }
 
-    /**
-     * loadSampleData - Hardcoded student data for demo purposes
-     */
     private void loadSampleData() {
         studentData.clear();
 
@@ -203,7 +189,6 @@ public class StudentForm extends JPanel {
         refreshTable();
     }
 
-    // Load selected row data sa form
     private void loadStudentToForm(int row) {
         idField.setText(tableModel.getValueAt(row, 0).toString());
         nameField.setText(tableModel.getValueAt(row, 1).toString());
