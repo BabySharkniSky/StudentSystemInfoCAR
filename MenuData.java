@@ -4,26 +4,22 @@
  */
 package studentinfo.model;
 
-/**
- * MenuData - Model class para sa side menu items
- * Nag-store lang ng pangalan ng bawat menu item
- */
+
 public class MenuData {
     
-    // Field
-    private String name;   // pangalan ng menu item
+
+    private String name;   
     
     /**
      * Constructor - Gumagawa ng bagong MenuData object
-     * @param name - pangalan ng menu item
+     * @param name 
      */
     public MenuData(String name) {
         this.name = name;
     }
     
-    // Getter - kunin ang pangalan ng menu item
+
     public String getName() { return name; }
     
-    // Setter - i-update ang pangalan ng menu item
     public void setName(String name) { this.name = name; }
 }
