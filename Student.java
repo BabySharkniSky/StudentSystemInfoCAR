@@ -9,27 +9,24 @@ package studentinfo.model;
  * @author Maine
  */
 public class Student {
-    // Private fields - dito natin isi-store yung student info
-    private String id;      // Student ID, halimbawa: C2025184921
-    private String name;    // Full name ng student
-    private String email;   // Email address ng student
-    private String phone;   // Contact number
-    private String course;  // Course kung saan enrolled
-    private String status;  // Enrollment status (Active, Inactive, Graduated)
-    
-    // Constructor - tatawagin kapag gagawa ng bagong Student object
-    // Required lahat ng fields dito
-    public Student(String id, String name, String email, String phone, String course, String status) {
-        // I-assign yung values ng parameters sa fields ng object
+  
+    private String id;      
+    private String name;    
+    private String email;   
+    private String phone;   
+    private String course;  
+
+
+    public Student(String id, String name, String email, String phone, String course) {
+        
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.course = course;
-        this.status = status;
     }
     
-    // Getter methods - para makuha yung value ng bawat field
+
     
     public String getId() { 
         return id; 
@@ -50,13 +47,8 @@ public class Student {
     public String getCourse() { 
         return course; 
     }
-    
-    public String getStatus() { 
-        return status; 
-    }
-    
-    // Setter methods - para ma-update yung value ng fields
-    // Useful kapag kailangan baguhin yung info ng student
+   
+
     
     public void setId(String id) { 
         this.id = id; 
@@ -78,7 +70,4 @@ public class Student {
         this.course = course; 
     }
     
-    public void setStatus(String status) { 
-        this.status = status; 
-    }
-}
+
