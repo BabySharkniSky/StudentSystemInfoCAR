@@ -14,13 +14,7 @@ public class Staff {
     private String phone;      
     private String department; 
 
-    /**
-     * Constructor - Gumagawa ng bagong Staff object
-     * @param name 
-     * @param email 
-     * @param phone 
-     * @param department t
-     */
+
     public Staff(String name, String email, String phone, String department) {
         this.name = name;
         this.email = email;
@@ -40,4 +34,5 @@ public class Staff {
     public void setPhone(String phone) { this.phone = phone; }
     public void setDepartment(String department) { this.department = department; }
 }
+
 
