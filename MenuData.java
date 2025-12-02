@@ -10,8 +10,7 @@ public class MenuData {
 
     private String name;   
     
-    /**
-     * Constructor - Gumagawa ng bagong MenuData object
+    /*
      * @param name 
      */
     public MenuData(String name) {
@@ -23,3 +22,4 @@ public class MenuData {
     
     public void setName(String name) { this.name = name; }
 }
+
