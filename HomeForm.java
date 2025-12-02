@@ -21,27 +21,22 @@ public class HomeForm extends JPanel {
     private JLabel timeLabel;
 
     public HomeForm() {
-        // Ginamitan natin ng BorderLayout na may konting spacing para breathable tingnan
+
         setLayout(new BorderLayout(15, 15));
 
-        // Simple, malinis na white background
         setBackground(Kulay.WHITE);
 
-        // Padding ng buong panel para hindi dikit sa edges yung contents
         setBorder(new EmptyBorder(30, 30, 30, 30));
 
         initComponents();
-        startClock(); // Tawagin agad yung clock para mag-display ng date/time
+        startClock(); 
     }
 
     private void initComponents() {
-        // Header (greetings + date)
         add(createHeaderPanel(), BorderLayout.NORTH);
 
-        // Top stats cards (Students, Staff, Courses)
         add(createTopCardsPanel(), BorderLayout.CENTER);
 
-        // Bottom section placeholder (future content)
         add(createBottomPanel(), BorderLayout.SOUTH);
     }
 
@@ -50,13 +45,10 @@ public class HomeForm extends JPanel {
         panel.setOpaque(true);
         panel.setBackground(Kulay.ACCENT_GRAY);
 
-        // Space sa baba para hindi dikit sa ibang components
         panel.setBorder(new EmptyBorder(0, 0, 15, 0));
 
-        // Container ng welcome text at subtitle
         JPanel welcomePanel = new JPanel(new GridLayout(2, 1, 0, 3));
         welcomePanel.setOpaque(false);
-
         JLabel welcome = new JLabel("Hi there, Basta!");
         welcome.setFont(new Font("Tahoma", Font.BOLD, 22));
         welcome.setForeground(Color.BLACK);
@@ -68,12 +60,10 @@ public class HomeForm extends JPanel {
         welcomePanel.add(welcome);
         welcomePanel.add(subtitle);
 
-        // Label kung saan lalagay ang current date
         timeLabel = new JLabel();
         timeLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
         timeLabel.setForeground(Color.BLACK);
 
-        // Arrange left (welcome) at right (date/time)
         panel.add(welcomePanel, BorderLayout.WEST);
         panel.add(timeLabel, BorderLayout.EAST);
 
@@ -105,19 +95,17 @@ public class HomeForm extends JPanel {
         card.setBorder(BorderFactory.createLineBorder(Kulay.BORDER_NEUTRAL, 2));
         card.setOpaque(true);
 
-    // VALUE (big number)
         JLabel valueLabel = new JLabel(value);
         valueLabel.setFont(new Font("Tahoma", Font.BOLD, 28));
         valueLabel.setForeground(color);
-        valueLabel.setHorizontalAlignment(SwingConstants.CENTER); // ginamiit to para ma center yung content nung nasa box
+        valueLabel.setHorizontalAlignment(SwingConstants.CENTER); // CENTER
 
-    // TEXT LABEL (Total Students, etc.)
         JLabel nameLabel = new JLabel(label);
         nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
         nameLabel.setForeground(Color.BLACK);
-        nameLabel.setHorizontalAlignment(SwingConstants.CENTER); // ginamit to para ma center yung content nung nasa box
+        nameLabel.setHorizontalAlignment(SwingConstants.CENTER); // CENTER
 
-    // CENTERING BOTH
+   
         JPanel textPanel = new JPanel(new GridLayout(2, 1, 0, 3));
         textPanel.setOpaque(false);
         textPanel.add(valueLabel);
@@ -129,18 +117,15 @@ public class HomeForm extends JPanel {
     }
 
     private JPanel createBottomPanel() {
-        // Placeholder area sa baba para may space
         JPanel panel = new JPanel(new GridLayout(1, 2, 10, 0));
         panel.setOpaque(false);
 
-        // Placeholder height para may structure
         panel.setPreferredSize(new Dimension(0, 350));
 
         return panel;
     }
 
     private void startClock() {
-        // Kukunin lang natin yung current date (fixed for now)
         String time = new SimpleDateFormat("EEEE, MMM dd, yyyy").format(new Date());
 
         timeLabel.setText(time);
